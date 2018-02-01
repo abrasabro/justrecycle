@@ -28,13 +28,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_listitem, parent, false);
         RecyclerView.ViewHolder holder = new ViewHolder(view);
-        return null;
+        return holder;
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         Log.d(TAG, "onBindViewHolder: called");
-        ((TextView)holder.itemView).setText(mTextList.get(position));
+        ((ViewHolder)holder).textView.setText(mTextList.get(position));
         ((ViewHolder)holder).parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
